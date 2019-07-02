@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>tomagotchi</title>
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 </head>
 <body>
 
 	<div id="container">
-		<div id="metrics">
-			<ul>
-				<li>Age:</li>
-				<li>Hunger:</li>
-				<li>Sleepiness:</li>
-				<li>Bordom:</li>
-			</ul>
+
+		<div id="time">00:00:00</div>
+
+		<div id="metricscontainer">
+			<div class="displayMetrics">age</div>
+			<div class="displayMetrics">hunger</div>
+			<div class="displayMetrics">sleepiness</div>
+			<div class="displayMetrics">bordem</div>
 		</div>
-		<div id="buttons">
-			<button>feed</button>
-			<button>light</button>
-			<button>play</button>
-		</div>
-		<div id="pet">
+
+
+
+		<div id="petcontainer">
 			<!-- the pet's movin area -->
 		</div>
+
+
+		<div id="buttoncontainer">
+			<div class="buttons"></div>
+			<div class="buttons"></div>
+			<div class="buttons"></div>
+			<div class="buttontext">feed</div>
+			<div class="buttontext">light</div>
+			<div class="buttontext">play</div>
+		</div>
+
 	</div>
 
 
 
 
-	<script type="text/javascript" src="js/pet.js"></script>
+	<script type="text/javascript" src="js/pets.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,73 @@
+body{
+	/*background-color: pink;*/
+}
+
+
+#container{
+	display: flex;
+	background-color: pink;
+	width:500px;
+	height: 600px;
+	border-radius: 100px;
+	margin: 0 auto;
+	flex-direction: column;
+}
+
+
+#time{
+	/*border: 4px solid black;*/
+	height:20px;
+	margin: 50px 50px 10px 50px;
+	text-align: center;
+	font-family: 'Press Start 2P', cursive;
+	font-size: 20px;
+}
+
+#metricscontainer{
+	display: flex;
+	/*border: 4px solid black;*/
+	height:50px;
+	margin: 10px 50px;
+	justify-content: space-between;
+	align-content: center;
+}
+
+.displayMetrics{
+	/*border: 2px solid black;*/
+	width:70px; 
+	height:50px;
+	font-family: 'Press Start 2P', cursive;
+	font-size: 10px;
+}
+
+#petcontainer{
+	border: 4px solid black;
+	height:300px;
+	margin: 10px 50px;
+}
+
+#buttoncontainer{
+	/*border: 4px solid black;*/
+	display: flex;
+	height: 50px;
+	margin: 10px 50px;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.buttons{
+	border: 5px solid black;
+	height: 40px;
+	width: 40px;
+	border-radius: 50px;
+	margin:0 40px;
+}
+
+.buttontext{
+	text-align: center;
+	font-family: 'Press Start 2P', cursive;
+	font-size: 10px;
+	height: 40px;
+	width: 40px;
+	margin:10px 20px;
+}

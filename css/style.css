@@ -9,7 +9,7 @@ body{
 	width:500px;
 	height: 600px;
 	border-radius: 100px;
-	margin: 0 auto;
+	margin: 50px auto;
 	flex-direction: column;
 }
 
@@ -17,7 +17,7 @@ body{
 #time{
 	/*border: 4px solid black;*/
 	height:20px;
-	margin: 50px 50px 10px 50px;
+	margin: 30px 50px;
 	text-align: center;
 	font-family: 'Press Start 2P', cursive;
 	font-size: 20px;
@@ -26,7 +26,7 @@ body{
 
 #metricscontainer{
 	display: flex;
-	/*border: 4px solid black;*/
+	/*border: 4px solid red;*/
 	height:50px;
 	margin: 10px 50px;
 	justify-content: space-between;
@@ -34,18 +34,29 @@ body{
 }
 
 .displayMetrics{
-	/*border: 2px solid black;*/
+	/*border: 2px solid red;*/
 	width:70px; 
 	height:50px;
 	font-family: 'Press Start 2P', cursive;
-	font-size: 10px;
+	font-size: 12px;
 	color:rgb(0,255,0);
+	text-align: center
 }
 
 #petcontainer{
 	border: 4px solid rgb(0,255,0);
 	height:300px;
 	margin: 10px 50px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+#pet{
+	/*border: 2px solid red;*/
+	width:250px;
+	height:250px;
+
 }
 
 #buttoncontainer{
@@ -66,6 +77,7 @@ body{
 }
 
 .buttontext{
+	/*border: 1px solid green;*/
 	text-align: center;
 	font-family: 'Press Start 2P', cursive;
 	font-size: 10px;
@@ -73,4 +85,10 @@ body{
 	width: 40px;
 	margin:10px 20px;
 	color: rgb(0,255,0);
+}
+
+
+img{
+	width: 100%;
+	height: 100%;
 }

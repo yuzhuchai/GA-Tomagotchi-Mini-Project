@@ -34,7 +34,4 @@ class Pets {
 
 	}
 
-	increaseTime(){
-
-	}
 }

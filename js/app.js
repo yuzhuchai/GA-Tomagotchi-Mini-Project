@@ -15,6 +15,7 @@ const game = {
 
 	createPet(){
 		//name should be a prompt 
+		// instatiate our pet class
 	},
 
 	feedPet(){
@@ -26,6 +27,10 @@ const game = {
 	},
 
 	playWithPet(){
+
+	},
+
+	increaseTime(){
 
 	},
 

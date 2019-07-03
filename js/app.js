@@ -27,7 +27,7 @@ const game = {
 		const myPet = new Pets(this.petName)
 		myPet.initPet()
 		this.petObj = myPet
-		this.displayTime()
+		this.haveInterval()
 	},
 
 //user can input pet name and use the value to instatiate the pet class
@@ -121,14 +121,10 @@ const game = {
 		this.currentTimeArr[2]=(new Date().getSeconds())
 		this.currentTime = this.currentTimeArr.join(":")
 		$("#time").text(this.currentTime)
-		this.increaseHunger()
-		this.increaseAge()
-		this.increaseBordem()
-		this.increaseSleepiness()
 	},
 */
 
-	setTime(){
+	getTime(){
 		this.second ++
 		if(this.second === 60){
 			this.second = 0
@@ -138,22 +134,29 @@ const game = {
 			this.minute =0
 			this.hour += 1
 		}
+	},
 
+	displaytime(){
 		let h = ('0'+this.hour).slice(-2)
 		let m = ('0'+this.minute).slice(-2)
 		let s = ('0'+this.second).slice(-2)
 		this.timer = `${h}:${m}:${s}`
-
-
 		$("#time").text(this.timer)
+	},
+
+	upDateChanges(){
+		this.getTime()
+		this.displaytime()
 		this.increaseHunger()
 		this.increaseAge()
 		this.increaseBordem()
 		this.increaseSleepiness()
 	},
+
+
 //function that sets interval starts every time the pet gets initated. 
-	displayTime(){
-		const time = setInterval(this.setTime.bind(this), 1000)
+	haveInterval(){
+		const time = setInterval(this.upDateChanges.bind(this), 1000)
 		// const time = setInterval(this.getCurrentTime.bind(this), 1000)
 		// console.log(this);
 	}

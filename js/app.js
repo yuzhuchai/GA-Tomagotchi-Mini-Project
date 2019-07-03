@@ -177,12 +177,48 @@ const myGame = {
 	time: "",
 	pet: null,
 	interval: null,
+	second: 0,
+	minute: 0,
+	hour:0,
+	timerdisplay:"",
 	createPet(name){
 		this.petName = name 
 		$("#inputname").hide()
 		this.pet = new Pet(name)
 		this.pet.initPet()
-	}
+		this.timer()
+	},
+
+	timer(){
+		this.interval = setInterval(() => {
+			console.log(this.second);
+			this.getTime()
+			this.displaytime()
+			//your functions here 
+		},1000)
+	},
+
+	getTime(){
+		this.second ++
+		if(this.second === 60){
+			this.second = 0
+			this.minute += 1
+		}
+		if(this.minute === 60){
+			this.minute =0
+			this.hour += 1
+		}
+	},
+
+	displaytime(){
+		let h = ('0'+this.hour).slice(-2)
+		let m = ('0'+this.minute).slice(-2)
+		let s = ('0'+this.second).slice(-2)
+		this.timerdisplay = `${h}:${m}:${s}`
+		$("#time").text(this.timerdisplay)
+	},
+
+
 }
 
 // const myGame = {

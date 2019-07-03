@@ -3,7 +3,7 @@
 // each pet should have hunger(1-10), sleepiness(1-10), boredom(1-10), age, name, 
 //the increase function should be in object. 
 
-class Pets {
+class Pet {
 	constructor(name){
 		this.name = name 
 		this.age = 1

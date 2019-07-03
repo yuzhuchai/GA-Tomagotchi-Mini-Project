@@ -7,7 +7,7 @@
 //increase the age. 
 //morph the pet at certain age.
 
-
+/*
 //user interactivity with the game
 const game = {
 	//is the time the player object? 
@@ -20,7 +20,7 @@ const game = {
 	petAlive: true,
 	interval: null,
 
-	createPet(name){
+	createPet(){
 		this.getPetName()
 		//name should be a prompt 
 		// instatiate our pet class
@@ -168,12 +168,20 @@ const game = {
 		// console.log(timee);
 	}
 }
+
+
+
+*/
 const myGame = {
+	petName: null,
 	time: "",
 	pet: null,
 	interval: null,
-	start(){
-		
+	createPet(name){
+		this.petName = name 
+		$("#inputname").hide()
+		this.pet = new Pet(name)
+		this.pet.initPet()
 	}
 }
 
@@ -205,6 +213,11 @@ const myGame = {
 
 //event listener 
 //create buttons and check if it works 
+$("button").on("click",() => {
+	myGame.createPet($("input").val())
+	console.log(myGame.pet);
+})
+
 $("#buttoncontainer").on("click",(e) => {
 	if(e.target.id === "feed"){
 		game.feedPet()

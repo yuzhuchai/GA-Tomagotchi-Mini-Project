@@ -47,6 +47,7 @@ const game = {
 	feedPet(){
 		this.petObj.hunger -= 1
 		$("#hunger").text(this.petObj.hunger)
+		$("#message").text(`Thank U`)
 		console.log("do sth to decrease hunger, and animations");
 	},
 
@@ -56,13 +57,15 @@ const game = {
 			$("#sleep").text(this.petObj.sleepiness)
 		}
 		if(this.petObj.sleepiness === 8) {
-			$("#message").text(`sleepy~~`)
+			$("#message").text(`sleepy~~ lights off plz`)
 		}
 	},
 
 	controlLight(){
-		this.petObj.sleepiness -= 1
+		this.petObj.sleepiness -= 5
 		$("#sleep").text(this.petObj.sleepiness)
+		$("#message").text(`THX! ZZZzzzz`)
+
 		console.log("turn off the light animation and decrease the sleepness");
 	},
 
@@ -87,10 +90,14 @@ const game = {
 			this.petObj.age += 1
 			$("#age").text(this.petObj.age)
 		}
+		this.morphPet()
 	},
 
 	morphPet(){
-
+		// console.log(this);
+		if(this.petObj.age === 2){
+			$("img").attr("src","pic/petage.png")
+		}
 	},
 
 	killPet(){

@@ -15,6 +15,10 @@ const game = {
 	petObj: {},
 	currentTimeArr: ["","",""],
 	currentTime: "",
+	second: 0,
+	minute: 0,
+	hour:0,
+	timer:"",
 
 	createPet(){
 		this.getPetName()
@@ -35,7 +39,7 @@ const game = {
 
 	increaseHunger(){
 		// console.log(this.currentTimeArr[2]);
-		if(parseInt(this.currentTimeArr[2])%10 === 0){
+		if(this.second%10 === 0){
 			this.petObj.hunger += 1
 			$("#hunger").text(this.petObj.hunger)
 		}
@@ -52,7 +56,7 @@ const game = {
 	},
 
 	increaseSleepiness(){
-		if(parseInt(this.currentTimeArr[2])%2 === 0){
+		if(this.second%2 === 0){
 			this.petObj.sleepiness += 1
 			$("#sleep").text(this.petObj.sleepiness)
 		}
@@ -70,7 +74,7 @@ const game = {
 	},
 
 	increaseBordem(){
-		if(parseInt(this.currentTimeArr[2])%20 === 0){
+		if(this.second%20 === 0){
 			this.petObj.boredom += 1
 			$("#boredom").text(this.petObj.boredom)
 		}
@@ -86,7 +90,7 @@ const game = {
 	},
 
 	increaseAge(){
-		if(parseInt(this.currentTimeArr[2])%60 === 0){
+		if(this.second%60 === 0){
 			this.petObj.age += 1
 			$("#age").text(this.petObj.age)
 		}
@@ -108,6 +112,8 @@ const game = {
 	},
 
 //this is a timer function by using the current time. 
+
+/*
 	getCurrentTime(){
 		// console.log(this);
 		this.currentTimeArr[0]=(new Date().getHours())
@@ -120,10 +126,35 @@ const game = {
 		this.increaseBordem()
 		this.increaseSleepiness()
 	},
+*/
 
+	setTime(){
+		this.second ++
+		if(this.second === 60){
+			this.second = 0
+			this.minute += 1
+		}
+		if(this.minute === 60){
+			this.minute =0
+			this.hour += 1
+		}
+
+		let h = ('0'+this.hour).slice(-2)
+		let m = ('0'+this.minute).slice(-2)
+		let s = ('0'+this.second).slice(-2)
+		this.timer = `${h}:${m}:${s}`
+
+
+		$("#time").text(this.timer)
+		this.increaseHunger()
+		this.increaseAge()
+		this.increaseBordem()
+		this.increaseSleepiness()
+	},
 //function that sets interval starts every time the pet gets initated. 
 	displayTime(){
-		const time = setInterval(this.getCurrentTime.bind(this), 1000)
+		const time = setInterval(this.setTime.bind(this), 1000)
+		// const time = setInterval(this.getCurrentTime.bind(this), 1000)
 		// console.log(this);
 	}
 
@@ -150,6 +181,7 @@ $("#buttoncontainer").on("mousedown",(e) => {
 		$(e.target).css("background-color","rgb(0,255,0)")
 	}
 })
+
 
 $("#buttoncontainer").on("mouseup",(e) => {
 	if(e.target.className === "buttons"){

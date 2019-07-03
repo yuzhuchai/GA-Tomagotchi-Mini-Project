@@ -58,7 +58,7 @@ const game = {
 	},
 
 	increaseSleepiness(){
-		if(this.second%1 === 0 && this.petAlive === true){
+		if(this.second%3 === 0 && this.petAlive === true){
 			this.petObj.sleepiness += 1
 			$("#sleep").text(this.petObj.sleepiness)
 		}
@@ -76,13 +76,14 @@ const game = {
 	},
 
 	increaseBordem(){
-		if(this.second%20 === 0 && this.petAlive === true){
+		if(this.second%2 === 0 && this.petAlive === true){
 			this.petObj.boredom += 1
 			$("#boredom").text(this.petObj.boredom)
 		}
 		if(this.petObj.boredom === 7){
+			$("img").attr("src","pic/bored.png")
 			$("#message").text(`come play`)
-		}
+		} 
 	},
 
 	playWithPet(){
@@ -109,8 +110,8 @@ const game = {
 
 	killPet(){
 		if (this.petObj.hunger === 10 || this.petObj.sleepiness === 10 || this.petObj.boredom === 10){
-			console.log(this.petObj.sleepiness);
-			console.log($("#sleep").text());
+			// console.log(this.petObj.sleepiness);
+			// console.log($("#sleep").text());
 			$("#message").text(`Alas, poor ${this.petName}`);
 			$("img").attr("src","pic/alas.png")
 			alert (`your tomagotchi died.`)
@@ -119,6 +120,20 @@ const game = {
 
 	},
 
+
+	animatePet(){
+		if(this.second%2 === 0 && this.petAlive === true){
+			$("#pet").css({
+				"width":"220px",
+				"height":"220px"
+			})
+	    }else {
+	    	$("#pet").css({
+				"width":"250px",
+				"height":"250px"
+			})
+	    }
+	},
 //this is a timer function by using the current time. 
 
 /*
@@ -161,6 +176,7 @@ const game = {
 		this.increaseAge()
 		this.increaseBordem()
 		this.increaseSleepiness()
+		this.animatePet()
 	},
 
 	stop(){

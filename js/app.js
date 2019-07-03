@@ -181,6 +181,7 @@ const myGame = {
 	minute: 0,
 	hour:0,
 	timerdisplay:"",
+	lightOn: true,
 	createPet(name){
 		this.petName = name 
 		$("#inputname").hide()
@@ -195,17 +196,19 @@ const myGame = {
 			this.displaytime()
 			// this.pet.morphPet()
 			//your functions here 
-			if(this.second%2 === 0){
+			if(this.second%2 === 0 && this.lightOn === true){
 				this.pet.getHungrier()
 			} 
-			if(this.second%3 === 0){
+			if(this.second%3 === 0 && this.lightOn === true){
 				this.pet.becomeBored()
 			}
 			if(this.second%3 === 0){
 				this.pet.getOlder()
 			}
-			if(this.second%5 === 0){
+			if(this.second%5 === 0 && this.lightOn === true){
 				this.pet.getSleeplier()
+			}else if(this.lightOn === false && this.second%5 === 0){
+				this.pet.wakeUp()
 			}
 		},1000)
 	},
@@ -231,17 +234,47 @@ const myGame = {
 	},
 
 	feedPet(){
-		this.pet.hunger -= 1
-		$("#hunger").text(this.pet.hunger)
-		$("#message").text(`Thank U yumm`)
-		// console.log("do sth to decrease hunger, and an
+		if(this.pet.hunger > 3){
+			this.pet.hunger -= 1
+			$("#hunger").text(this.pet.hunger)
+			$("#message").text(`Thank U yumm`)
+		} else {
+			$("#message").text(`not hungry yet!`)
+		}
 	},
 
 	playWithPet(){
 		this.pet.boredom -= 1
 		$("#boredom").text(this.pet.boredom)
-	}
+		$("#message").text("hi friend")
+	},
 
+	controlLight(){
+		if (this.lightOn === true){
+			if(this.pet.sleepiness > 5){
+				this.lightOn = false 
+				$("#message").text("gn! ZZZZZzzzz")
+				$("#lighttext").text("on")
+			}else {
+				this.lightOn = true 
+				$("#lighttext").text("off")
+				$("#message").text("not sleepy yet!")
+			}
+		}else if(this.lightOn === false){
+			if(this.pet.sleepiness <= 5){
+				this.lightOn = true
+				// console.log(this.lightOn);
+				$("#lighttext").text("off")
+			} else {
+				this.lightOn = false 
+				$("#lighttext").text("on")
+				$("#message").text("need more sleep!")
+
+			}
+		}
+	},
+
+	
 }
 
 // const myGame = {

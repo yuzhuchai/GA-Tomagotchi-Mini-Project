@@ -63,4 +63,9 @@ class Pet {
 		}	
 	}
 
+	wakeUp(){
+		this.sleepiness -= 1 
+		$("#sleep").text(this.sleepiness)
+	}
+
 }

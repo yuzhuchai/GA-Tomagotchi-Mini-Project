@@ -97,6 +97,7 @@ const game = {
 		// console.log(this);
 		if(this.petObj.age === 2){
 			$("img").attr("src","pic/petage.png")
+			$("#message").text(`hey i'm ${this.petObj.age} years old!`)
 		}
 	},
 

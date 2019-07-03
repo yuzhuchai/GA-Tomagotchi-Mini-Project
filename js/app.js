@@ -182,6 +182,8 @@ const myGame = {
 	hour:0,
 	timerdisplay:"",
 	lightOn: true,
+
+
 	createPet(name){
 		this.petName = name 
 		$("#inputname").hide()
@@ -192,6 +194,8 @@ const myGame = {
 
 	timer(){
 		this.interval = setInterval(() => {
+			this.pet.killPet()
+			this.stop()
 			this.getTime()
 			this.displaytime()
 			// this.pet.morphPet()
@@ -207,7 +211,7 @@ const myGame = {
 			}
 			if(this.second%5 === 0 && this.lightOn === true){
 				this.pet.getSleeplier()
-			}else if(this.lightOn === false && this.second%5 === 0){
+			}else if(this.lightOn === false && this.second%5 === 0 && this.pet.sleepiness > 1){
 				this.pet.wakeUp()
 			}
 		},1000)
@@ -274,7 +278,12 @@ const myGame = {
 		}
 	},
 
-	
+	stop(){
+		if(this.pet.alive === false){
+			clearInterval(this.interval)
+		}
+	},
+
 }
 
 // const myGame = {

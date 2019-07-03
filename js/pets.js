@@ -10,6 +10,7 @@ class Pet {
 		this.sleepiness = 1
 		this.boredom = 1
 		this.hunger = 1
+		this.alive = true
 	}
 //those functions are not controlled by the users, thus should be created in the pet class
 	initPet(){
@@ -66,6 +67,18 @@ class Pet {
 	wakeUp(){
 		this.sleepiness -= 1 
 		$("#sleep").text(this.sleepiness)
+	}
+
+
+	killPet(){
+		if (this.hunger === 10 || this.sleepiness === 10 || this.boredom === 10){
+			// console.log(this.petObj.sleepiness);
+			// console.log($("#sleep").text());
+			$("#message").text(`Alas, poor ${this.name}`);
+			$("#petpic").attr("src","pic/alas.png")
+			alert (`your tomagotchi died.`)
+			this.alive = false 
+		}
 	}
 
 }

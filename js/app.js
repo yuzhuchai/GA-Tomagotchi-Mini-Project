@@ -15,6 +15,7 @@ const game = {
 	petObj: {},
 	currentTimeArr: ["","",""],
 	currentTime: "",
+
 	createPet(){
 		this.getPetName()
 		//name should be a prompt 
@@ -34,9 +35,12 @@ const game = {
 
 	increaseHunger(){
 		// console.log(this.currentTimeArr[2]);
-		if(parseInt(this.currentTimeArr[2])%60 === 0){
+		if(parseInt(this.currentTimeArr[2])%10 === 0){
 			this.petObj.hunger += 1
 			$("#hunger").text(this.petObj.hunger)
+		}
+		if(this.petObj.hunger === 5) {
+			$("#message").text(`i'm hungry feed meeee!!!!`)
 		}
 	},
 
@@ -45,9 +49,12 @@ const game = {
 	},
 
 	increaseSleepiness(){
-		if(parseInt(this.currentTimeArr[2])%60 === 0){
+		if(parseInt(this.currentTimeArr[2])%2 === 0){
 			this.petObj.sleepiness += 1
 			$("#sleep").text(this.petObj.sleepiness)
+		}
+		if(this.petObj.sleepiness === 8) {
+			$("#message").text(`sleepy~~`)
 		}
 	},
 
@@ -56,9 +63,12 @@ const game = {
 	},
 
 	increaseBordem(){
-		if(parseInt(this.currentTimeArr[2])%60 === 0){
+		if(parseInt(this.currentTimeArr[2])%20 === 0){
 			this.petObj.boredom += 1
 			$("#boredom").text(this.petObj.boredom)
+		}
+		if(this.petObj.boredom === 2){
+			$("#message").text(`come play`)
 		}
 	},
 
@@ -73,6 +83,15 @@ const game = {
 		}
 	},
 
+	morphPet(){
+
+	},
+
+	killPet(){
+
+	},
+
+//this is a timer function by using the current time. 
 	getCurrentTime(){
 		// console.log(this);
 		this.currentTimeArr[0]=(new Date().getHours())
@@ -89,7 +108,7 @@ const game = {
 //function that sets interval starts every time the pet gets initated. 
 	displayTime(){
 		const time = setInterval(this.getCurrentTime.bind(this), 1000)
-		console.log(this);
+		// console.log(this);
 	}
 
 }

@@ -44,6 +44,15 @@ class Pet {
 		this.age += 1
 		$("#age").text(this.age)
 		$("#message").text(`i'm ${this.age} years old!`)
+		this.morphPet()
+	}
+
+	morphPet(){ 
+		// console.log(this);
+		if(this.age === 4){
+			$("#petpic").attr("src","pic/petage.png")
+			$("#message").text(`new look!`)
+		}
 	}
 
 	getSleeplier(){

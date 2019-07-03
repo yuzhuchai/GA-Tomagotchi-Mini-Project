@@ -193,6 +193,7 @@ const myGame = {
 		this.interval = setInterval(() => {
 			this.getTime()
 			this.displaytime()
+			// this.pet.morphPet()
 			//your functions here 
 			if(this.second%2 === 0){
 				this.pet.getHungrier()

@@ -45,6 +45,8 @@ const game = {
 	},
 
 	feedPet(){
+		this.petObj.hunger -= 1
+		$("#hunger").text(this.petObj.hunger)
 		console.log("do sth to decrease hunger, and animations");
 	},
 
@@ -59,6 +61,8 @@ const game = {
 	},
 
 	controlLight(){
+		this.petObj.sleepiness -= 1
+		$("#sleep").text(this.petObj.sleepiness)
 		console.log("turn off the light animation and decrease the sleepness");
 	},
 
@@ -73,6 +77,8 @@ const game = {
 	},
 
 	playWithPet(){
+		this.petObj.boredom -= 1
+		$("#boredom").text(this.petObj.boredom)
 		console.log("do sth to decreaasee bordom");
 	},
 

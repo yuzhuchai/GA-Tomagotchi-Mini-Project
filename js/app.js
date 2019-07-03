@@ -12,10 +12,9 @@
 const game = {
 	//is the time the player object? 
 	petName: "",
-	petObj: [],
+	petObj: {},
 	currentTimeArr: ["","",""],
 	currentTime: "",
-
 	createPet(){
 		this.getPetName()
 		//name should be a prompt 
@@ -31,6 +30,15 @@ const game = {
 		const name = prompt("name you pet here!")
 		console.log(name);
 		this.petName = name
+	},
+
+	increaseHunger(){
+		// console.log(this.currentTimeArr[2]);
+		// this.currentTimeArr[2] === "0" || 
+		if(parseInt(this.currentTimeArr[2])%60 === 0){
+			this.petObj.hunger += 1
+			$("#hunger").text(this.petObj.hunger)
+		}
 	},
 
 	feedPet(){
@@ -52,7 +60,9 @@ const game = {
 		this.currentTimeArr[2]=(new Date().getSeconds())
 		this.currentTime = this.currentTimeArr.join(":")
 		$("#time").text(this.currentTime)
+		this.increaseHunger()
 	},
+
 //function that sets interval starts every time the pet gets initated. 
 	displayTime(){
 		const time = setInterval(this.getCurrentTime.bind(this), 1000)

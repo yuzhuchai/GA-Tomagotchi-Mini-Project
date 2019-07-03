@@ -24,22 +24,4 @@ class Pets {
 		$("#sleep").text(this.sleepiness)
 	}
 
-	increaseHunger(){
-		//function should attach this to the html 
-		//function should increase its hunger 
-	}
-
-	increaseSleepiness(){
-		// attach stuff to the screen 
-		//increase 
-	}
-
-	increaseAge(){
-		//morph the age ? 
-	}
-
-	increaseBoredom(){
-
-	}
-
 }

@@ -1,8 +1,3 @@
-//class
-
-// each pet should have hunger(1-10), sleepiness(1-10), boredom(1-10), age, name, 
-//the increase function should be in object. 
-
 class Pet {
 	constructor(name){
 		this.name = name 
@@ -67,6 +62,9 @@ class Pet {
 	wakeUp(){
 		this.sleepiness -= 1 
 		$("#sleep").text(this.sleepiness)
+		if (this.sleepiness === 1){
+			$("#message").text(`lights on plz!!`)
+		}
 	}
 
 

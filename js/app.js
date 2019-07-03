@@ -34,7 +34,6 @@ const game = {
 
 	increaseHunger(){
 		// console.log(this.currentTimeArr[2]);
-		// this.currentTimeArr[2] === "0" || 
 		if(parseInt(this.currentTimeArr[2])%60 === 0){
 			this.petObj.hunger += 1
 			$("#hunger").text(this.petObj.hunger)
@@ -45,12 +44,33 @@ const game = {
 		console.log("do sth to decrease hunger, and animations");
 	},
 
+	increaseSleepiness(){
+		if(parseInt(this.currentTimeArr[2])%60 === 0){
+			this.petObj.sleepiness += 1
+			$("#sleep").text(this.petObj.sleepiness)
+		}
+	},
+
 	controlLight(){
 		console.log("turn off the light animation and decrease the sleepness");
 	},
 
+	increaseBordem(){
+		if(parseInt(this.currentTimeArr[2])%60 === 0){
+			this.petObj.boredom += 1
+			$("#boredom").text(this.petObj.boredom)
+		}
+	},
+
 	playWithPet(){
 		console.log("do sth to decreaasee bordom");
+	},
+
+	increaseAge(){
+		if(parseInt(this.currentTimeArr[2])%60 === 0){
+			this.petObj.age += 1
+			$("#age").text(this.petObj.age)
+		}
 	},
 
 	getCurrentTime(){
@@ -61,6 +81,9 @@ const game = {
 		this.currentTime = this.currentTimeArr.join(":")
 		$("#time").text(this.currentTime)
 		this.increaseHunger()
+		this.increaseAge()
+		this.increaseBordem()
+		this.increaseSleepiness()
 	},
 
 //function that sets interval starts every time the pet gets initated. 

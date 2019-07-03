@@ -48,7 +48,7 @@ const game = {
 		this.petObj.hunger -= 1
 		$("#hunger").text(this.petObj.hunger)
 		$("#message").text(`Thank U`)
-		console.log("do sth to decrease hunger, and animations");
+		// console.log("do sth to decrease hunger, and animations");
 	},
 
 	increaseSleepiness(){
@@ -66,7 +66,7 @@ const game = {
 		$("#sleep").text(this.petObj.sleepiness)
 		$("#message").text(`THX! ZZZzzzz`)
 
-		console.log("turn off the light animation and decrease the sleepness");
+		// console.log("turn off the light animation and decrease the sleepness");
 	},
 
 	increaseBordem(){
@@ -74,7 +74,7 @@ const game = {
 			this.petObj.boredom += 1
 			$("#boredom").text(this.petObj.boredom)
 		}
-		if(this.petObj.boredom === 2){
+		if(this.petObj.boredom === 7){
 			$("#message").text(`come play`)
 		}
 	},
@@ -96,13 +96,15 @@ const game = {
 	morphPet(){
 		// console.log(this);
 		if(this.petObj.age === 2){
-			$("img").attr("src","pic/petage.png")
+			// $("img").attr("src","pic/petage.png")
 			$("#message").text(`hey i'm ${this.petObj.age} years old!`)
 		}
 	},
 
 	killPet(){
-
+		if (this.petObj.age === 10){
+			console.log(`Alas, poor ${this.petName}`);
+		}
 	},
 
 //this is a timer function by using the current time. 
@@ -138,5 +140,20 @@ $("#buttoncontainer").on("click",(e) => {
 		game.controlLight()
 	}else if(e.target.id === "play"){
 		game.playWithPet()
+	}
+})
+
+
+$("#buttoncontainer").on("mousedown",(e) => {
+	if(e.target.className === "buttons"){
+		// console.log(e.target);
+		$(e.target).css("background-color","rgb(0,255,0)")
+	}
+})
+
+$("#buttoncontainer").on("mouseup",(e) => {
+	if(e.target.className === "buttons"){
+		// console.log(e.target);
+		$(e.target).css("background-color","black")
 	}
 })

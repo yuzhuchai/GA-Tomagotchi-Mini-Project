@@ -229,6 +229,17 @@ const myGame = {
 		$("#time").text(this.timerdisplay)
 	},
 
+	feedPet(){
+		this.pet.hunger -= 1
+		$("#hunger").text(this.pet.hunger)
+		$("#message").text(`Thank U yumm`)
+		// console.log("do sth to decrease hunger, and an
+	},
+
+	playWithPet(){
+		this.pet.boredom -= 1
+		$("#boredom").text(this.pet.boredom)
+	}
 
 }
 
@@ -267,11 +278,11 @@ $("button").on("click",() => {
 
 $("#buttoncontainer").on("click",(e) => {
 	if(e.target.id === "feed"){
-		game.feedPet()
+		myGame.feedPet()
 	}else if(e.target.id === "light"){
-		game.controlLight()
+		myGame.controlLight()
 	}else if(e.target.id === "play"){
-		game.playWithPet()
+		myGame.playWithPet()
 	}
 })
 

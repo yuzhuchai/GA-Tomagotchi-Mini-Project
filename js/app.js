@@ -13,7 +13,7 @@ const game = {
 	//is the time the player object? 
 	petName: "",
 	petObj: [],
-	currentTimeArr: [],
+	currentTimeArr: ["","",""],
 	currentTime: "",
 
 	createPet(){
@@ -23,6 +23,7 @@ const game = {
 		const myPet = new Pets(this.petName)
 		myPet.initPet()
 		this.petObj = myPet
+		this.displayTime()
 	},
 
 //user can input pet name and use the value to instatiate the pet class
@@ -33,27 +34,29 @@ const game = {
 	},
 
 	feedPet(){
-
+		console.log("do sth to decrease hunger, and animations");
 	},
 
 	controlLight(){
-
+		console.log("turn off the light animation and decrease the sleepness");
 	},
 
 	playWithPet(){
-
+		console.log("do sth to decreaasee bordom");
 	},
 
 	getCurrentTime(){
-		this.currentTimeArr.push(new Date().getHours())
-		this.currentTimeArr.push(new Date().getMinutes())
-		this.currentTimeArr.push(new Date().getSeconds())
+		// console.log(this);
+		this.currentTimeArr[0]=(new Date().getHours())
+		this.currentTimeArr[1]=(new Date().getMinutes())
+		this.currentTimeArr[2]=(new Date().getSeconds())
 		this.currentTime = this.currentTimeArr.join(":")
 		$("#time").text(this.currentTime)
 	},
 //function that sets interval starts every time the pet gets initated. 
-	setInterval(){
-
+	displayTime(){
+		const time = setInterval(this.getCurrentTime.bind(this), 1000)
+		console.log(this);
 	}
 
 }
@@ -64,10 +67,10 @@ game.createPet()
 //create buttons and check if it works 
 $("#buttoncontainer").on("click",(e) => {
 	if(e.target.id === "feed"){
-		console.log("do sth to decrease hunger, and animations");
+		game.feedPet()
 	}else if(e.target.id === "light"){
-		console.log("turn off the light animation and decrease the sleepness");
+		game.controlLight()
 	}else if(e.target.id === "play"){
-		console.log("do sth to decreaasee bordom");
+		game.playWithPet()
 	}
 })

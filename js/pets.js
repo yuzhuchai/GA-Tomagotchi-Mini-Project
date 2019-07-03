@@ -24,4 +24,34 @@ class Pet {
 		$("#sleep").text(this.sleepiness)
 	}
 
+	getHungrier(){
+		this.hunger += 1
+		$("#hunger").text(this.hunger)
+		if(this.hunger === 5) {
+			$("#message").text(`i'm hungry feed meeee!!!!`)
+		}
+	}
+
+	becomeBored(){
+		this.boredom += 1
+		$("#boredom").text(this.boredom)
+		if(this.boredom === 8) {
+			$("#message").text(`come play`)
+		}	
+	}
+
+	getOlder(){
+		this.age += 1
+		$("#age").text(this.age)
+		$("#message").text(`i'm ${this.age} years old!`)
+	}
+
+	getSleeplier(){
+		this.sleepiness += 1
+		$("#sleep").text(this.sleepiness)
+		if(this.sleepiness === 8){
+			$("#message").text(`sleepy!!`)
+		}	
+	}
+
 }

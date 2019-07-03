@@ -191,10 +191,21 @@ const myGame = {
 
 	timer(){
 		this.interval = setInterval(() => {
-			console.log(this.second);
 			this.getTime()
 			this.displaytime()
 			//your functions here 
+			if(this.second%2 === 0){
+				this.pet.getHungrier()
+			} 
+			if(this.second%3 === 0){
+				this.pet.becomeBored()
+			}
+			if(this.second%3 === 0){
+				this.pet.getOlder()
+			}
+			if(this.second%5 === 0){
+				this.pet.getSleeplier()
+			}
 		},1000)
 	},
 

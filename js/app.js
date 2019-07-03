@@ -57,3 +57,17 @@ const game = {
 	}
 
 }
+
+game.createPet()
+
+//event listener 
+//create buttons and check if it works 
+$("#buttoncontainer").on("click",(e) => {
+	if(e.target.id === "feed"){
+		console.log("do sth to decrease hunger, and animations");
+	}else if(e.target.id === "light"){
+		console.log("turn off the light animation and decrease the sleepness");
+	}else if(e.target.id === "play"){
+		console.log("do sth to decreaasee bordom");
+	}
+})

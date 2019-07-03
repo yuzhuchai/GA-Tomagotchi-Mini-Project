@@ -9,6 +9,7 @@ class Pets {
 		this.age = 1
 		this.sleepiness = 1
 		this.boredom = 1
+		this.hunger = 1
 	}
 //those functions are not controlled by the users, thus should be created in the pet class
 	initPet(){
@@ -16,7 +17,11 @@ class Pets {
 		// have all the functions below 
 		//display the div 
 		$("#pet").css("display","block")
-		$("#message").text(`hi, my name is ${this.name}`)
+		$("#message").text(`hi, i'm ${this.name}`)
+		$("#age").text(this.age)
+		$("#hunger").text(this.hunger)
+		$("#boredom").text(this.boredom)
+		$("#sleep").text(this.sleepiness)
 	}
 
 	increaseHunger(){

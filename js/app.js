@@ -11,13 +11,25 @@
 //user interactivity with the game
 const game = {
 	//is the time the player object? 
-	pet: {},
+	petName: "",
+	petObj: [],
 	currentTimeArr: [],
 	currentTime: "",
 
 	createPet(){
+		this.getPetName()
 		//name should be a prompt 
 		// instatiate our pet class
+		const myPet = new Pets(this.petName)
+		myPet.initPet()
+		this.petObj = myPet
+	},
+
+//user can input pet name and use the value to instatiate the pet class
+	getPetName(){
+		const name = prompt("name you pet here!")
+		console.log(name);
+		this.petName = name
 	},
 
 	feedPet(){

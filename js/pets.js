@@ -14,6 +14,9 @@ class Pets {
 	initPet(){
 		//attach the pet to the screen, 
 		// have all the functions below 
+		//display the div 
+		$("#pet").css("display","block")
+		$("#message").text(`hi, my name is ${this.name}`)
 	}
 
 	increaseHunger(){

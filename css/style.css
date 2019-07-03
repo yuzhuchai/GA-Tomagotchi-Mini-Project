@@ -49,15 +49,32 @@ body{
 	margin: 10px 50px;
 	display: flex;
 	justify-content: center;
-	align-items: flex-end;
+	/*align-items: flex-end;*/
+	flex-direction: column;
 }
 
 #pet{
-	/*border: 2px solid red;*/
+	/*border: 2px solid blue;*/
 	width:250px;
 	height:250px;
-
+	margin: 0 auto;
+	display: none
 }
+
+img{
+	width: 100%;
+	height: 100%;
+	/*border: 2px solid red;*/
+}
+
+#message{
+	color: rgb(0,255,0);
+	font-family: 'Press Start 2P', cursive;
+	font-size: 15px;
+	/*border:2px solid red;*/
+	margin: 0 auto;
+}
+
 
 #buttoncontainer{
 	/*border: 4px solid black;*/
@@ -85,10 +102,4 @@ body{
 	width: 40px;
 	margin:10px 20px;
 	color: rgb(0,255,0);
-}
-
-
-img{
-	width: 100%;
-	height: 100%;
 }

@@ -19,6 +19,8 @@ const game = {
 	minute: 0,
 	hour:0,
 	timer:"",
+	petAlive: true,
+	interval: null,
 
 	createPet(){
 		this.getPetName()
@@ -39,7 +41,7 @@ const game = {
 
 	increaseHunger(){
 		// console.log(this.currentTimeArr[2]);
-		if(this.second%10 === 0){
+		if(this.second%10 === 0 && this.petAlive === true){
 			this.petObj.hunger += 1
 			$("#hunger").text(this.petObj.hunger)
 		}
@@ -56,7 +58,7 @@ const game = {
 	},
 
 	increaseSleepiness(){
-		if(this.second%2 === 0){
+		if(this.second%1 === 0 && this.petAlive === true){
 			this.petObj.sleepiness += 1
 			$("#sleep").text(this.petObj.sleepiness)
 		}
@@ -74,7 +76,7 @@ const game = {
 	},
 
 	increaseBordem(){
-		if(this.second%20 === 0){
+		if(this.second%20 === 0 && this.petAlive === true){
 			this.petObj.boredom += 1
 			$("#boredom").text(this.petObj.boredom)
 		}
@@ -90,7 +92,7 @@ const game = {
 	},
 
 	increaseAge(){
-		if(this.second%60 === 0){
+		if(this.second%60 === 0 && this.petAlive === true){
 			this.petObj.age += 1
 			$("#age").text(this.petObj.age)
 		}
@@ -99,16 +101,22 @@ const game = {
 
 	morphPet(){
 		// console.log(this);
-		if(this.petObj.age === 2){
-			// $("img").attr("src","pic/petage.png")
+		if(this.petObj.age === 4){
+			$("img").attr("src","pic/petage.png")
 			$("#message").text(`hey i'm ${this.petObj.age} years old!`)
 		}
 	},
 
 	killPet(){
-		if (this.petObj.age === 10){
-			console.log(`Alas, poor ${this.petName}`);
+		if (this.petObj.hunger === 10 || this.petObj.sleepiness === 10 || this.petObj.boredom === 10){
+			console.log(this.petObj.sleepiness);
+			console.log($("#sleep").text());
+			$("#message").text(`Alas, poor ${this.petName}`);
+			$("img").attr("src","pic/alas.png")
+			alert (`your tomagotchi died.`)
+			this.petAlive = false 
 		}
+
 	},
 
 //this is a timer function by using the current time. 
@@ -145,6 +153,8 @@ const game = {
 	},
 
 	upDateChanges(){
+		this.killPet()
+		this.stop()
 		this.getTime()
 		this.displaytime()
 		this.increaseHunger()
@@ -153,15 +163,21 @@ const game = {
 		this.increaseSleepiness()
 	},
 
+	stop(){
+		if(this.petAlive === false){
+			clearInterval(this.interval)
+		}
+	},
 
 //function that sets interval starts every time the pet gets initated. 
 	haveInterval(){
-		const time = setInterval(this.upDateChanges.bind(this), 1000)
+		this.interval = setInterval(this.upDateChanges.bind(this), 1000)
 		// const time = setInterval(this.getCurrentTime.bind(this), 1000)
 		// console.log(this);
+		// console.log(timee);
+		}
 	}
 
-}
 
 game.createPet()
 

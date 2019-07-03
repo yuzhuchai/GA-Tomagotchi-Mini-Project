@@ -22,18 +22,18 @@ const game = {
 	petAlive: true,
 	interval: null,
 
-	createPet(){
+	createPet(name){
 		this.getPetName()
 		//name should be a prompt 
 		// instatiate our pet class
-		const myPet = new Pets(this.petName)
+		const myPet = new Pet(this.petName)
 		myPet.initPet()
 		this.petObj = myPet
 		this.haveInterval()
 	},
 
 //user can input pet name and use the value to instatiate the pet class
-	getPetName(){
+	getPetName() {
 		const name = prompt("name you pet here!")
 		console.log(name);
 		this.petName = name
@@ -86,7 +86,7 @@ const game = {
 		} 
 	},
 
-	playWithPet(){
+	playWithPet(){ 
 		this.petObj.boredom -= 1
 		$("#boredom").text(this.petObj.boredom)
 		console.log("do sth to decreaasee bordom");
@@ -100,7 +100,7 @@ const game = {
 		this.morphPet()
 	},
 
-	morphPet(){
+	morphPet(){ 
 		// console.log(this);
 		if(this.petObj.age === 4){
 			$("img").attr("src","pic/petage.png")
@@ -191,11 +191,35 @@ const game = {
 		// const time = setInterval(this.getCurrentTime.bind(this), 1000)
 		// console.log(this);
 		// console.log(timee);
-		}
 	}
+}
 
 
-game.createPet()
+// const myGame = {
+// 	time: 0,
+// 	pet: null,
+// 	interval: null,
+// 	start() {
+// 		//new Pet ....
+// 		// prompt user for name
+// 		//instantiation
+
+// 	},
+// 	timer: function() {
+// 		this.interval = setInterval(() => {
+// 			if(this.time%2===0) {
+// 				this.pet.getHungrier()
+// 			}
+				
+// 		}, 1000)
+// 	}
+// }
+
+
+// button.on('click', (e) => {
+// 	game.createPet(e.target.name)
+// 	// hide the input
+// })
 
 //event listener 
 //create buttons and check if it works 

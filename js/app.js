@@ -81,9 +81,13 @@ const game = {
 			$("#boredom").text(this.petObj.boredom)
 		}
 		if(this.petObj.boredom === 7){
-			$("img").attr("src","pic/bored.png")
+			$("#petdiv").hide()
+			$("#boreddiv").show()
 			$("#message").text(`come play`)
-		} 
+		} else{
+			$("#petdiv").show()
+			$("#boreddiv").hide()
+		}
 	},
 
 	playWithPet(){
@@ -103,7 +107,7 @@ const game = {
 	morphPet(){
 		// console.log(this);
 		if(this.petObj.age === 4){
-			$("img").attr("src","pic/petage.png")
+			$("#petpic").attr("src","pic/petage.png")
 			$("#message").text(`hey i'm ${this.petObj.age} years old!`)
 		}
 	},
@@ -113,7 +117,7 @@ const game = {
 			// console.log(this.petObj.sleepiness);
 			// console.log($("#sleep").text());
 			$("#message").text(`Alas, poor ${this.petName}`);
-			$("img").attr("src","pic/alas.png")
+			$("#petpic").attr("src","pic/alas.png")
 			alert (`your tomagotchi died.`)
 			this.petAlive = false 
 		}
@@ -123,12 +127,12 @@ const game = {
 
 	animatePet(){
 		if(this.second%2 === 0 && this.petAlive === true){
-			$("#pet").css({
+			$("#petdiv").css({
 				"width":"220px",
 				"height":"220px"
 			})
 	    }else {
-	    	$("#pet").css({
+	    	$("#petdiv").css({
 				"width":"250px",
 				"height":"250px"
 			})
@@ -209,11 +213,20 @@ $("#buttoncontainer").on("click",(e) => {
 	}
 })
 
+///animations: only animate the pet, and the other stuff attach them to html first but display:none. when click, show() and hide() the pet
 
 $("#buttoncontainer").on("mousedown",(e) => {
 	if(e.target.className === "buttons"){
 		// console.log(e.target);
 		$(e.target).css("background-color","rgb(0,255,0)")
+	}
+	if(e.target.id === "feed"){
+		$("#petdiv").hide()
+		$("#feeddiv").show()
+	}
+	if(e.target.id === "light"){
+		$("#petdiv").hide()
+		$("#lightOffdiv").show()
 	}
 })
 
@@ -223,4 +236,19 @@ $("#buttoncontainer").on("mouseup",(e) => {
 		// console.log(e.target);
 		$(e.target).css("background-color","black")
 	}
+	if(e.target.id === "feed"){
+		$("#petdiv").show()
+		$("#feeddiv").hide()
+	}
+	if(e.target.id === "light"){
+		$("#petdiv").show()
+		$("#lightOffdiv").hide()
+	}
 })
+
+
+
+//instead of hide and show, use z-index and relative position in the petcontainer box. 
+//add new methods 
+
+

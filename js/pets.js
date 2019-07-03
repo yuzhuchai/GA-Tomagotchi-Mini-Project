@@ -16,7 +16,7 @@ class Pets {
 		//attach the pet to the screen, 
 		// have all the functions below 
 		//display the div 
-		$("#pet").css("display","block")
+		$("#petdiv").css("display","block")
 		$("#message").text(`hi, i'm ${this.name}`)
 		$("#age").text(this.age)
 		$("#hunger").text(this.hunger)

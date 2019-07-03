@@ -53,7 +53,7 @@ body{
 	flex-direction: column;
 }
 
-#pet{
+#boreddiv,#feeddiv,#lightOffdiv,#petdiv{
 	/*border: 2px solid blue;*/
 	width:250px;
 	height:250px;
@@ -68,7 +68,7 @@ img{
 }
 
 #message{
-	position: relative;
+	/*position: relative;*/
 	color: rgb(0,255,0);
 	font-family: 'Press Start 2P', cursive;
 	font-size: 15px;

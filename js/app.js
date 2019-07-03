@@ -13,8 +13,6 @@ const game = {
 	//is the time the player object? 
 	petName: "",
 	petObj: {},
-	currentTimeArr: ["","",""],
-	currentTime: "",
 	second: 0,
 	minute: 0,
 	hour:0,
@@ -125,32 +123,6 @@ const game = {
 	},
 
 
-	animatePet(){
-		if(this.second%2 === 0 && this.petAlive === true){
-			$("#petdiv").css({
-				"width":"220px",
-				"height":"220px"
-			})
-	    }else {
-	    	$("#petdiv").css({
-				"width":"250px",
-				"height":"250px"
-			})
-	    }
-	},
-//this is a timer function by using the current time. 
-
-/*
-	getCurrentTime(){
-		// console.log(this);
-		this.currentTimeArr[0]=(new Date().getHours())
-		this.currentTimeArr[1]=(new Date().getMinutes())
-		this.currentTimeArr[2]=(new Date().getSeconds())
-		this.currentTime = this.currentTimeArr.join(":")
-		$("#time").text(this.currentTime)
-	},
-*/
-
 	getTime(){
 		this.second ++
 		if(this.second === 60){
@@ -180,7 +152,6 @@ const game = {
 		this.increaseAge()
 		this.increaseBordem()
 		this.increaseSleepiness()
-		this.animatePet()
 	},
 
 	stop(){
@@ -244,14 +215,6 @@ $("#buttoncontainer").on("mousedown",(e) => {
 		// console.log(e.target);
 		$(e.target).css("background-color","rgb(0,255,0)")
 	}
-	if(e.target.id === "feed"){
-		$("#petdiv").hide()
-		$("#feeddiv").show()
-	}
-	if(e.target.id === "light"){
-		$("#petdiv").hide()
-		$("#lightOffdiv").show()
-	}
 })
 
 
@@ -259,14 +222,6 @@ $("#buttoncontainer").on("mouseup",(e) => {
 	if(e.target.className === "buttons"){
 		// console.log(e.target);
 		$(e.target).css("background-color","black")
-	}
-	if(e.target.id === "feed"){
-		$("#petdiv").show()
-		$("#feeddiv").hide()
-	}
-	if(e.target.id === "light"){
-		$("#petdiv").show()
-		$("#lightOffdiv").hide()
 	}
 })
 

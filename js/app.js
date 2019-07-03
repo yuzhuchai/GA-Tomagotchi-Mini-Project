@@ -168,7 +168,14 @@ const game = {
 		// console.log(timee);
 	}
 }
-
+const myGame = {
+	time: "",
+	pet: null,
+	interval: null,
+	start(){
+		
+	}
+}
 
 // const myGame = {
 // 	time: 0,

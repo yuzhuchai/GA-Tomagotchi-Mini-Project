@@ -12,6 +12,8 @@
 const game = {
 	//is the time the player object? 
 	pet: {},
+	currentTimeArr: [],
+	currentTime: "",
 
 	createPet(){
 		//name should be a prompt 
@@ -30,8 +32,16 @@ const game = {
 
 	},
 
-	increaseTime(){
-
+	getCurrentTime(){
+		this.currentTimeArr.push(new Date().getHours())
+		this.currentTimeArr.push(new Date().getMinutes())
+		this.currentTimeArr.push(new Date().getSeconds())
+		this.currentTime = this.currentTimeArr.join(":")
+		$("#time").text(this.currentTime)
 	},
+//function that sets interval starts every time the pet gets initated. 
+	setInterval(){
+
+	}
 
 }

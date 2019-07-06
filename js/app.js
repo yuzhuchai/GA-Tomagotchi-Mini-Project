@@ -26,13 +26,13 @@ const myGame = {
 			this.displaytime()
 			// this.pet.morphPet()
 			//your functions here 
-			if(this.second%2 === 0 && this.lightOn === true){
+			if(this.second%10 === 0 && this.lightOn === true){
 				this.pet.getHungrier()
 			} 
-			if(this.second%3 === 0 && this.lightOn === true){
+			if(this.second%2 === 0 && this.lightOn === true){
 				this.pet.becomeBored()
 			}
-			if(this.second%20 === 0){
+			if(this.second%19=== 0){
 				this.pet.getOlder()
 			}
 			if(this.second%5 === 0 && this.lightOn === true){
@@ -78,6 +78,8 @@ const myGame = {
 			this.pet.boredom -= 1
 			$("#boredom").text(this.pet.boredom)
 			$("#message").text("hi friend")
+			$("#playwithpet").css({"display":"block", "z-index":"1"})
+			$("#playwithpet").fadeOut(10000)
 		}
 	},
 
@@ -87,20 +89,25 @@ const myGame = {
 				this.lightOn = false 
 				$("#message").text("gn! ZZZZZzzzz")
 				$("#lighttext").text("on")
+				$("#lightOffdiv").css({"display":"block","z-index":"1"})
 			}else {
 				this.lightOn = true 
 				$("#lighttext").text("off")
 				$("#message").text("not sleepy yet!")
+				$("#lightOffdiv").css("z-index","-1")
 			}
 		}else if(this.lightOn === false){
 			if(this.pet.sleepiness <= 5){
 				this.lightOn = true
 				// console.log(this.lightOn);
+				$("#message").text("morning!")
 				$("#lighttext").text("off")
+				$("#lightOffdiv").css("z-index","-1")
 			} else {
 				this.lightOn = false 
 				$("#lighttext").text("on")
 				$("#message").text("need more sleep!")
+				$("#lightOffdiv").css({"display":"block","z-index":"1"})
 			}
 		}
 	},

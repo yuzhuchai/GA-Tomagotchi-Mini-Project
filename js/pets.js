@@ -31,15 +31,21 @@ class Pet {
 	becomeBored(){
 		this.boredom += 1
 		$("#boredom").text(this.boredom)
-		if(this.boredom === 8) {
+		if(this.boredom === 6) {
 			$("#message").text(`come play`)
-		}	
+			// console.log($("#boreddiv").css("z-index",));
+			$("#boreddiv").css({"z-index":"1",
+								"display":"block"})
+		} else if(this.boredom < 6) {
+			$("#boreddiv").css({"z-index":"-1",
+							   "display":"none"})
+		}
 	}
 
 	getOlder(){
 		this.age += 1
 		$("#age").text(this.age)
-		$("#message").text(`i'm ${this.age} years old!`)
+		// $("#message").text(`i'm ${this.age} years old!`)
 		this.morphPet()
 	}
 
@@ -74,6 +80,7 @@ class Pet {
 			// console.log($("#sleep").text());
 			$("#message").text(`Alas, poor ${this.name}`);
 			$("#petpic").attr("src","pic/alas.png")
+			$("#petdiv").css("z-index","1")
 			alert (`your tomagotchi died.`)
 			this.alive = false 
 		}

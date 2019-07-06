@@ -36,6 +36,7 @@ class Pet {
 			// console.log($("#boreddiv").css("z-index",));
 			$("#boreddiv").css({"z-index":"1",
 								"display":"block"})
+			$("#boreddiv").fadeOut(15000)
 		} else if(this.boredom < 6) {
 			$("#boreddiv").css({"z-index":"-1",
 							   "display":"none"})

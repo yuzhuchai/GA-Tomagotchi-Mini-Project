@@ -75,10 +75,12 @@ body{
 	border: 2px solid blue;
 	width:250px;
 	height:250px;
-	margin: 30px auto;
+	margin: 18px auto;
 	display: none;
 	position:absolute;
 }
+
+
 
 img{
 	width: 100%;

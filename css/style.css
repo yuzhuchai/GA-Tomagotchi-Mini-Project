@@ -3,6 +3,8 @@ body{
 }
 
 
+
+/*outer part of the toy*/
 #container{
 	display: flex;
 	border: 4px solid rgb(0,255,0);
@@ -14,6 +16,7 @@ body{
 }
 
 
+/*timer*/
 #time{
 	/*border: 4px solid black;*/
 	height:20px;
@@ -24,6 +27,13 @@ body{
 	color:rgb(0,255,0);
 }
 
+
+
+
+
+
+
+/*container div of the netrics*/
 #metricscontainer{
 	display: flex;
 	/*border: 4px solid red;*/
@@ -43,37 +53,51 @@ body{
 	text-align: center
 }
 
+
+
+
+
+
+
+/*screen parts*/
 #petcontainer{
 	border: 4px solid rgb(0,255,0);
 	height:300px;
-	margin: 10px 50px;
+	width:400px;
+	margin: 10px auto;
 	display: flex;
 	justify-content: center;
-	/*align-items: flex-end;*/
 	flex-direction: column;
+	align-items: center;
 }
 
 #boreddiv,#feeddiv,#lightOffdiv,#petdiv{
-	/*border: 2px solid blue;*/
+	border: 2px solid blue;
 	width:250px;
 	height:250px;
-	margin: 0 auto;
-	display: none
+	margin: 30px auto;
+	display: none;
+	position:absolute;
 }
 
 img{
 	width: 100%;
 	height: 100%;
-	/*border: 2px solid red;*/
+	/*position:relative;*/
+	border: 2px solid red;
 }
 
+
 #message{
-	/*position: relative;*/
 	color: rgb(0,255,0);
 	font-family: 'Press Start 2P', cursive;
 	font-size: 15px;
-	/*border:2px solid red;*/
-	margin: 0 auto;
+	border:2px solid red;
+	margin: -130px auto 0 auto;
+	position: absolute;
+	text-align: center;
+	/*width: 400px;*/
+
 }
 
 #inputname{
@@ -90,6 +114,13 @@ button, input.inputbox, textarea{
 }
 
 
+
+
+
+
+
+
+/*button parts*/
 #buttoncontainer{
 	/*border: 4px solid black;*/
 	display: flex;
@@ -117,3 +148,5 @@ button, input.inputbox, textarea{
 	margin:10px 20px;
 	color: rgb(0,255,0);
 }
+
+

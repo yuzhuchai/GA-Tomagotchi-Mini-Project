@@ -36,10 +36,7 @@ class Pet {
 			// console.log($("#boreddiv").css("z-index",));
 			$("#boreddiv").css({"z-index":"1",
 								"display":"block"})
-			$("#boreddiv").fadeOut(15000)
-		} else if(this.boredom < 6) {
-			$("#boreddiv").css({"z-index":"-1",
-							   "display":"none"})
+			$("#boreddiv").delay(7000).fadeOut(1)
 		}
 	}
 
@@ -81,7 +78,7 @@ class Pet {
 			// console.log($("#sleep").text());
 			$("#message").text(`Alas, poor ${this.name}`);
 			$("#petpic").attr("src","pic/alas.png")
-			$("#petdiv").css("z-index","1")
+			$("#petdiv").css({"width":"250px","height":"250px","margin-top":"18px","z-index":"1"})
 			alert (`your tomagotchi died.`)
 			this.alive = false 
 		}
